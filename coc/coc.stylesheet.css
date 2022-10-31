@@ -1,0 +1,30 @@
+
+  body{
+    padding:0;
+    margin: 0;
+    background-image:url( "https://highoncinemaa.com/wp-content/uploads/2022/10/Clash-of-Clans-Halloween-Update-2022-Obstacle-Spooky-Queen-Scenery-and-More.jpg");
+    background-size: contain;
+    background-repeat: repeat;
+}
+h1{
+  color: red;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 100px;
+  overflow: hidden; 
+white-space: nowrap; 
+margin: 0 auto; 
+letter-spacing: .15em; 
+animation: 
+typing 3.5s steps(40, end),
+blink-caret .75s step-end infinite;
+}
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+.S{
+  color: red;
+  }
+  
