@@ -4,7 +4,7 @@
     margin: 0;
     background-image:url( "https://highoncinemaa.com/wp-content/uploads/2022/10/Clash-of-Clans-Halloween-Update-2022-Obstacle-Spooky-Queen-Scenery-and-More.jpg");
     background-size: contain;
-    background-repeat: repeat;
+    background-repeat: cover;
 }
 h1{
   color: red;
