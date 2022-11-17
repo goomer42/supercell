@@ -1,5 +1,39 @@
 <style>
+body{
+    display: grid;
+    place-items:center;
+    height: 100vh;
+    align-content: center;
+    justify-content: center;
+}
 
+.textInput input{
+    width: 300px;
+    height: 30px;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+.searchBar{
+    display: flex;
+    align-items: center;
+}
+.searchBtn{
+    width: 50px;
+    height: 36px;
+    background-color: rgb(192, 192, 192);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.searchBtn img{
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+}
 
 
 nav{
@@ -105,7 +139,36 @@ body{
   <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tesla Camouflée</td>
 </tr>
 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styleSheet.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="searchBar">
+      <div class="textInput">
+          <input type="text" placeholder="Rechercher (troupes,sorts,...)">
+      </div>
+      <div class="searchBtn"><img src="https://img.icons8.com/ios-glyphs/60/000000/search--v1.png"/></div>
+  </div>
+  <script src="app..js"></script>
+</body>
+<script>
+  let textInput=document.querySelector('.textInput');
+let searchBtn=document.querySelector('.searchBtn');
 
+searchBtn.addEventListener('click',()=>{
+    
+});
+
+searchBtn.addEventListener("keydown", (e)=> {
+    if (e.key === "Enter") {
+       
+    }
+});
+</script>
 
 </table>
 
