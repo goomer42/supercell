@@ -1,0 +1,73 @@
+nav{
+    background-color: black;
+
+
+
+}
+nav a{
+     font-size: 30px;
+     height: 50px;
+     display: inline-block;
+     text-decoration: none;
+     color: white;
+     font-family: "Open Sans", sans-serif;
+     padding-right: 15px;
+     padding-left: 15px;
+     padding-top: 15px;
+     border-right: solclass 0.5px grey;
+     margin: 0;
+
+
+}
+nav a:hover{
+           background-color: lightgrey;
+
+}
+h1{
+    color: red;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 100px;
+    overflow: hidden; 
+  white-space: nowrap; 
+  margin: 0 auto; 
+  letter-spacing: .15em; 
+  animation: 
+typing 3.5s steps(40, end),
+blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+from { width: 0 }
+to { width: 100% }
+}
+table{
+border-collapse: collapse
+}
+td,th{
+padding: 10px;
+width: 100px;
+font-height:bold;
+text-transform: none;
+}
+caption{
+
+font-height: bold;
+
+}
+table{
+
+vertical-align: middle;
+}
+
+a{
+
+text-decoration: none;
+}
+
+
+
+.S{
+color: red;
+}
