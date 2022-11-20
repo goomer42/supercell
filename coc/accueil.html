@@ -1,37 +1,8 @@
-<style>
+
 
  
 
-#searchbar{
-  margin-left: 15%;
-  padding:15px;
-  border-radius: 10px;
-}
 
-input[type=text] {
-   width: 30%;
-   -webkit-transition: width 0.15s ease-in-out;
-   transition: width 0.15s ease-in-out;
-}
-
-/* When the input field gets focus,
-     change its width to 100% */
-input[type=text]:focus {
-  width: 70%;
-}
-
-#list{
- font-size:  1.5em;
- margin-left: 90px;
-}
-
-.animals{
-display: list-item; 
-color: black;
-text-decoration: none;   
-} 
-
-</style>
 <head>
 
   
@@ -61,11 +32,11 @@ text-decoration: none;
     
     
     
-    <body>
+    <body title="accueil">
     
 
       <nav>
-        <a href="index.html">Accueil</a>
+        <a href="accueil.html">Accueil</a>
         <a href="village.html">HDV Bases</a>
         <a href="composattaque.html">Composattaque</a>
         <a href="troupes.html">Troupes</a>
@@ -74,60 +45,20 @@ text-decoration: none;
     </nav>
     
     
-  <div id="typewriter">    
-  <h1>CLA<a href="index.html" class="S" title="Supercell">S</a>H OF CLAN<a href="index.html" class="S" title="Supercell">S</a></h1>
+  <div id="typewriter"><h1>CLA<a href="./index.html" class="S" title="Supercell">S</a>H OF CLAN<a href="index.html" class="S" title="Supercell">S</a></h1>
     
+
+
+
+
+
   <embed src="https://vgmsite.com/soundtracks/clash-of-clans-soundtrack/qwjvdgdhay/01%20Clash%20of%20Clans%20Intro.mp3" autoplay></embed>   
   <embed src="https://vgmsite.com/soundtracks/clash-of-clans-soundtrack/tcbethvdzk/04%20Home%20Music%20Part%201.mp3"autoplay></embed>
   
-  <head>
-    <title>
-        Creating Search Bar using HTML
-        CSS and Javascript
-    </title>
-      
-    <!-- linking the stylesheet(CSS) -->
-    <link rel="stylesheet" type="text/css" href="./style.css">
-</head>
+  
   
 <body>
-      
-    <!-- input tag -->
-    <input id="searchbar" onkeyup="search_troupe()" type="text"
-        name="search" placeholder="Rechercher...(troupes,sorts,...)">
-      
-    <!-- ordered list -->
-    <ol id='list'>
-        <li class="barbare"><a href="troupes.html">barbare</li>
-        <li class="archer">archer</li>
-        <li class="géant">géant</li>
-        <li class="gobelin">gobelin</li>
-        <li class="sapeur">sapeur</li>
-        <li class="ballon">ballon</li>
-        <li class="animals">Turtle</li>
-        <li class="animals">Whale</li>
-        <li class="animals">Aligator</li>
-        <li class="animals">Donkey</li>
-        <li class="animals">Horse</li>
-    </ol>
-      
-    <!-- linking javascript -->
-    <script src="./animals.js"></script>
-    <script>// JavaScript code
-      function search_animal() {
-          let input = document.getElementById('searchbar').value
-          input=input.toLowerCase();
-          let x = document.getElementsByClassName('animals');
-            
-          for (i = 0; i < x.length; i++) { 
-              if (!x[i].innerHTML.toLowerCase().includes(input)) {
-                  x[i].style.display="none";
-              }
-              else {
-                  x[i].style.display="list-item";                 
-              }
-          }
-      }</script>
+  <link rel="favicon icon" href="icone.ico" />
 </body>
   <p>
 
