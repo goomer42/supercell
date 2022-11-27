@@ -43,6 +43,8 @@ h3 {
 <head>
     <link rel="stylesheet" href="coc.stylesheet.css">
     <link rel="stylesheet" href="../stylesheet.css">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+
 </head>
 
 
@@ -97,7 +99,7 @@ h3 {
 <body>
   <div class="searchBar">
       <div class="textInput">
-          <input type="text" placeholder="Rechercher (troupes,sorts,...)">
+          <input id="searchbar" type="text" placeholder="Rechercher (troupes,sorts,...)">
       </div>
       <div class="searchBtn"><img src="https://img.icons8.com/ios-glyphs/60/000000/search--v1.png"/></div>
   </div>
@@ -108,14 +110,27 @@ h3 {
 let searchBtn=document.querySelector('.searchBtn');
 
 searchBtn.addEventListener('click',()=>{
-    
+let search =  document.getElementById("searchbar").value
+console.log(window.location.href)
+let lastindex = window.location.href.lastIndexOf("/")
+let newurl = window.location.href.substring(0,lastindex)+"/troupesroses/"+search+".html"
+console.log(newurl)  
+window.location.href = newurl
 });
 
-searchBtn.addEventListener("keydown", (e)=> {
+
+searchBtn.onkeydown = (e)=> {
+    console.log("key="+e.key)
     if (e.key === "Enter") {
+        let search =  document.getElementById("searchbar").value
+console.log(window.location.href)
+let lastindex = window.location.href.lastIndexOf("/")
+let newurl = window.location.href.substring(0,lastindex)+"/troupesroses/"+search+".html"
+console.log(newurl)  
+window.location.href = newurl
        
     }
-});
+};
 </script>
 
 </table>
