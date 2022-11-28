@@ -68,7 +68,7 @@ h3 {
 
     <nav>
         <a href="accueil.html">Accueil</a>
-        <a href="village.htmls">HDV Bases</a>
+        <a href="village.html">HDV Bases</a>
         <a href="composattaque.html">Composattaque</a>
         <a href="troupes.html">Troupes</a>
         <a href="batiments.html">Batiments</a>
@@ -109,23 +109,15 @@ h3 {
 let searchBtn=document.querySelector('.searchBtn');
 let search =  document.getElementById("searchbar")
 
-searchBtn.addEventListener('click',()=>{
-console.log(window.location.href)
-let lastindex = window.location.href.lastIndexOf("/")
-let newurl = window.location.href.substring(0,lastindex)+"/troupesroses/"+search.value+".html"
-console.log(newurl)  
-window.location.href = newurl
-});
+
 
 
 search.addEventListener ('keydown', (e)=> {
     console.log("key="+e.key)
     if (e.key === "Enter") {
         let search =  document.getElementById("searchbar").value
-console.log(window.location.href)
 let lastindex = window.location.href.lastIndexOf("/")
-let newurl = window.location.href.substring(0,lastindex)+"/troupesroses/"+search+".html"
-console.log(newurl)  
+let newurl = window.location.href.substring(0,lastindex)+"/Armée/"+search+".html" 
 window.location.href = newurl
        
     }
