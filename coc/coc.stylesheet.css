@@ -31,5 +31,35 @@ text-decoration: none;
     embed{
     background: none;
       }
-  
+      nav{
+        background-color: black;
+        
+    
+    
+    
+    }
+    nav a{
+         font-size: 30px;
+         height: 50px;
+         display: inline-block;
+         text-decoration: none;
+         color: white;
+         font-family: "Open Sans", sans-serif;
+         padding-right: 15px;
+         padding-left: 15px;
+         padding-top: 15px;
+         border-right: solclass 0.5px grey;
+         margin: 0;
+    
+    
+    }
+    nav a:hover{
+               background-color: lightgrey;
+    
+    }
+    /* The typing effect */
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+      }
  
