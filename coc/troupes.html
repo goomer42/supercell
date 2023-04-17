@@ -80,7 +80,40 @@ h3 {
   margin: 6px 0;
 }
 
+.search-container {
+  position: relative;
+  width: 100%;
+}
 
+#search-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#suggestions-list li {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#suggestions-list li:hover {
+  background-color: #f1f1f1;
+}
 
 
 
@@ -139,7 +172,9 @@ h3 {
       
     </span>
   </a>
-
+ 
+    
+  </div>
   <script>
     var menu = document.getElementById("mymenu");
 var openBtn = document.getElementById("openBtn");
@@ -170,6 +205,10 @@ function closeNav() {
         <div class="search-box">
             <input id="search-input" type="text" placeholder="Rechercher(troupes,sorts,...)"/>
             <button type="reset"></button>
+            <ul id="suggestions-list">
+            <li>archer</li>
+
+            </ul>
         </div>
       </div>
   </div>
@@ -195,7 +234,36 @@ window.location.href = newurl
 });
 </script>
 
+<script>
+    const searchInput = document.getElementById('search-input');
+const suggestionsList = document.getElementById('suggestions-list');
 
+searchInput.addEventListener('input', function() {
+  const inputValue = this.value.trim();
+  suggestionsList.innerHTML = '';
+
+  if (inputValue.length > 0) {
+    // TODO: Faire une requête AJAX pour récupérer les suggestions
+    const suggestions = ['archer', 'suggestion 2', 'suggestion 3'];
+
+    suggestions.forEach(function(suggestion) {
+      const li = document.createElement('li');
+      li.textContent = suggestion;
+      suggestionsList.appendChild(li);
+    });
+
+    suggestionsList.style.display = 'block';
+  } else {
+    suggestionsList.style.display = 'none';
+  }
+});
+
+document.addEventListener('click', function(e) {
+  if (!searchInput.contains(e.target)) {
+    suggestionsList.style.display = 'none';
+  }
+});
+</script>
 
 
 
