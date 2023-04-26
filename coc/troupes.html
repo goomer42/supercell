@@ -82,41 +82,45 @@ h3 {
 
 .search-container {
   position: relative;
-  width: 100%;
+  display: inline-block;
 }
 
-#search-input {
+#search-bar {
   width: 100%;
-  padding: 10px;
-  font-size: 16px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
 }
 
-#suggestions-list {
+#suggestions {
   position: absolute;
+  z-index: 999;
   top: 100%;
   left: 0;
-  z-index: 999;
   width: 100%;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-top: none;
+  list-style-type: none;
   padding: 0;
   margin: 0;
-  list-style: none;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-top: none;
 }
 
-#suggestions-list li {
-  padding: 10px;
-  font-size: 16px;
+#suggestions li {
+  padding: 12px 20px;
   cursor: pointer;
 }
 
-#suggestions-list li:hover {
-  background-color: #f1f1f1;
+#suggestions li:hover {
+  background-color: #ccc;
 }
 
+#suggestions {
+    display: none;
 
-
+}
 
 
 
@@ -144,7 +148,7 @@ h3 {
   
 
 
-  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
 
 </head>
@@ -205,10 +209,9 @@ function closeNav() {
         <div class="search-box">
             <input id="search-input" type="text" placeholder="Rechercher(troupes,sorts,...)"/>
             <button type="reset"></button>
-            <ul id="suggestions-list">
-            <li>archer</li>
-
-            </ul>
+            <ul id="suggestions">
+                <li>Archers</li>
+                <li>barbare</li>
         </div>
       </div>
   </div>
@@ -235,32 +238,38 @@ window.location.href = newurl
 </script>
 
 <script>
-    const searchInput = document.getElementById('search-input');
-const suggestionsList = document.getElementById('suggestions-list');
+const searchBar = document.getElementById('search-bar');
+const suggestions = document.getElementById('suggestions');
 
-searchInput.addEventListener('input', function() {
-  const inputValue = this.value.trim();
-  suggestionsList.innerHTML = '';
+// Liste des suggestions
+const suggestionsList = ['Chaussures', 'Chemises', 'Pantalons', 'Vestes', 'Accessoires'];
 
-  if (inputValue.length > 0) {
-    // TODO: Faire une requête AJAX pour récupérer les suggestions
-    const suggestions = ['archer', 'suggestion 2', 'suggestion 3'];
+searchBar.addEventListener('input', () => {
+  const input = searchBar.value.toLowerCase();
+  let matches = [];
 
-    suggestions.forEach(function(suggestion) {
-      const li = document.createElement('li');
-      li.textContent = suggestion;
-      suggestionsList.appendChild(li);
-    });
-
-    suggestionsList.style.display = 'block';
-  } else {
-    suggestionsList.style.display = 'none';
+  if (input.length > 0) {
+    matches = suggestionsList.filter(suggestion => suggestion.toLowerCase().includes(input));
   }
+
+  displaySuggestions(matches);
 });
 
-document.addEventListener('click', function(e) {
-  if (!searchInput.contains(e.target)) {
-    suggestionsList.style.display = 'none';
+function displaySuggestions(matches) {
+  if (matches.length > 0 && !searchBar.matches(':focus')) { // Vérifier que la barre de recherche n'a pas le focus
+    const html = matches.map(match => `<li>${match}</li>`).join('');
+    suggestions.innerHTML = html;
+    suggestions.style.display = 'block';
+  } else {
+    suggestions.innerHTML = '';
+    suggestions.style.display = 'none';
+  }
+}
+
+document.addEventListener('click', event => {
+  if (event.target !== searchBar) {
+    suggestions.innerHTML = '';
+    suggestions.style.display = 'none';
   }
 });
 </script>

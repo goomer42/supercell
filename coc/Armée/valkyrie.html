@@ -1,25 +1,78 @@
 <head>
-    <link rel="stylesheet" href="coc.stylesheet.css">
+    <link rel="stylesheet" href="../coc.stylesheet.css">
     <link rel="stylesheet" href="../stylesheet.css">
-  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
 
-</head>
+</head><style>
+  .menu {
+height: 100%;
+width: 250px;
+position: fixed;
+z-index: 1;
+top: 0;
+left: -250px;
+background-color: #e8e8e8;
+padding-top: 60px;
+transition: left 0.5s ease;
+}
+
+.menu ul {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+/* Sidenav menu links */
+.menu a {
+padding: 8px 8px 8px 32px;
+text-decoration: none;
+font-size: 25px;
+color: #818181;
+display: block;
+transition: 0.3s;
+}
+
+.menu a:hover {
+color: #111;
+}
+
+/* Active class */
+.menu.active {
+left: 0;
+}
+
+/* Close btn */
+.menu .close {
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+}
+
+.burger-icon span {
+display: block;
+width: 35px;
+height: 5px;
+background-color: black;
+margin: 6px 0;
+}
+</style>
 <body>
   
   <div id="mymenu" class="menu">
     <a id="closeBtn" href="#" class="close">&times;</a>
     <ul>
-      <li><a href="accueilvillage1.html">Accueil</a></li>
-      <li><a href="village.html">HDV Bases</a></li>
-      <li><a href="composattaque.html">Composattaque</a></li>
-      <li><a href="troupes.html">Troupes</a></li>
-      <li><a href="batiments.html">Batiments</a></li>
+      <li><a href="../accueilvillage1.html">Accueil</a></li>
+      <li><a href="../village.html">HDV Bases</a></li>
+      <li><a href="../composattaque.html">Composattaque</a></li>
+      <li><a href="../troupes.html">Troupes</a></li>
+      <li><a href="../batiments.html">Batiments</a></li>
     </ul>
   </div>
   
   <a href="#" id="openBtn">
     <span class="burger-icon">
-      <img src="grandgardien.jpg" height="70">
+      <img src="../grandgardien.jpg" height="70">
       
     </span>
   </a>
