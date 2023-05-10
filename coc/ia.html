@@ -1,0 +1,224 @@
+<style>
+.chat-container{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+    .chatbox {
+  width: 300px;
+  height: 400px;
+  background-color: black;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: auto;
+}
+
+.messages {
+  height: 300px;
+  overflow-y: scroll;
+  color: white;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+.message {
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.bot{
+    align-self: flex-start;
+}
+.user-message {
+  text-align: right; /* Aligne les messages de l'utilisateur à droite */
+  align-self: flex-end;
+  display: flex;
+  
+}
+
+.user-message::before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  margin-right: -5px;
+  margin-left: 5px;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid white/* Couleur du message de l'utilisateur */
+  
+}
+
+.bot::before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  margin-right: 5px;
+  margin-left: -5px;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid white; /* Couleur du message du chatbot */
+}
+body{ padding:0;
+    margin: 0;
+    background-image: url( 'https://static.wikia.nocookie.net/epicpixelbattles/images/1/19/Jarvis.png/revision/latest?cb=20200109210703' );
+    background-size: contain;
+    background-repeat: cover;
+}
+
+</style>
+<html>
+    <body>
+        
+   <div class="chat-container"></div>
+    <div class="chatbox">
+        <div class="messages"></div>
+        <input class='imput'type="text" placeholder="Tapez votre message...">
+        <button>Envoyer</button>
+      </div>
+
+
+<script>
+    const messages = document.querySelector('.messages');
+const input = document.querySelector('input');
+const button = document.querySelector('button');
+
+button.addEventListener('click', sendMessage);
+
+input.addEventListener('keydown', function(event) {
+  if (event.keyCode === '13') { // Vérifie si la touche "Entrée" est pressée
+    sendMessage();
+  }
+});
+function addMessage(message, sender = 'user') {
+  const messageDiv = document.createElement('div');
+  messageDiv.classList.add('message');
+  messageDiv.classList.add(sender);
+
+  if (sender === 'user') {
+    messageDiv.classList.add('user-message'); // Ajoute une classe spécifique pour les messages de l'utilisateur
+  }
+
+  messageDiv.innerText = message;
+  messages.appendChild(messageDiv);
+}
+function sendMessage() {
+  const message = input.value;
+  const botMessage = generateBotMessage(message);
+  clearMessages();
+  addMessage(message);
+  addMessage(botMessage, 'bot');
+  input.value = '';
+}
+function clearMessages() {
+  messages.innerHTML = ''; // Efface le contenu de la boîte de chat
+}
+
+function generateBotMessage(message) {
+  let botResponse = '';
+
+  // Ajoutez ici vos conditions et réponses en fonction du message reçu
+  if (message.toLowerCase().includes('salut')) {
+    botResponse = getRandomResponse(['Bonjour, je suis Jarvis, l intelligence artificielle de Mr Douine' , 'Comment puis je  vous aider ? ']);
+  } else if (message.toLowerCase().includes('comment ça va')) {
+    botResponse = getRandomResponse('Je suis une intelligence artificielle, j ai pas d émotions mais merci de demander');
+  }else if (message.toLowerCase().includes('Je suis Titouan')) {
+    botResponse = 'Oh bonjour Mr Douine, comment allez vous !!';
+  }else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else if (message.toLowerCase().includes('')) {
+    botResponse = '';
+  } else {
+    botResponse = 'Désolé, je ne comprends pas.';
+  }
+
+  return botResponse;
+}
+
+function addMessage(message, sender = 'user') {
+  const messageDiv = document.createElement('div');
+  messageDiv.classList.add('message');
+  messageDiv.classList.add(sender);
+  messageDiv.innerText = message;
+  messages.appendChild(messageDiv);
+}
+
+</script>
+
+</body>
+</html>
