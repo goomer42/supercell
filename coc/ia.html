@@ -95,14 +95,23 @@ body{ padding:0;
         <input class='imput'type="text" placeholder="Tapez votre message...">
         <button>Envoyer</button>
       </div>
-
+      <div class="note-container"></div>
+      <div class="notebox">
+          <div class="notes"></div>
+          <input class='imput2'type="" placeholder="Tapez votre note...">
+          <button class="button2">Envoyer</button>
+        </div>
 
 <script>
     const messages = document.querySelector('.messages');
 const input = document.querySelector('input');
 const button = document.querySelector('button');
 
-button.addEventListener('click', sendMessage);
+const notes = document.querySelector('.notes');
+const input2 = document.querySelector('input');
+const button2 = document.querySelector('button');
+
+button2.addEventListener('a', sendMessage);
 
 input.addEventListener('keydown', function(event) {
   if (event.keyCode === '13') { // Vérifie si la touche "Entrée" est pressée
@@ -143,7 +152,7 @@ function generateBotMessage(message) {
     botResponse = getRandomResponse('Je suis une intelligence artificielle, j ai pas d émotions mais merci de demander');
   }else if (message.toLowerCase().includes('Je suis Titouan')) {
     botResponse = 'Oh bonjour Mr Douine, comment allez vous !!';
-  }else if (message.toLowerCase().includes('')) {
+  }else if (message.toLowerCase('Bien, merci').includes('')) {
     botResponse = '';
   } else if (message.toLowerCase().includes('')) {
     botResponse = '';
