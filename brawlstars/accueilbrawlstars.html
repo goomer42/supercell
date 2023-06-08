@@ -1,39 +1,8 @@
 <style>
 
 
-    body{
-        padding:0;
-            margin: 0;
-            background-image:url( "https://play-lh.googleusercontent.com/EiElcSrd6-o-19roiswSx0AZPzsq6qF3hUGHsSWDl5UVtj7G23DHkneM8ucwqyOmEg");
-            background-size: contain;
-            background-repeat: repeat;
-    }
-    
-    nav{
-          background-color: black;
-      
-      
-      
-      }
-    
-    nav a{
-        font-size: 30px;
-        height: 50px;
-        display: inline-block;
-        text-decoration: none;
-        color: white;
-        font-family: "Open Sans", sans-serif;
-        padding-right: 15px;
-        padding-left: 15px;
-        padding-top: 15px;
-        border-right: solclass 0.5px grey;
-        margin: 0;
-    
-    
-    }
-    nav a:hover{
-              background-color: lightgrey;
-            } 
+   
+            
     
     
     
@@ -61,13 +30,16 @@
       color: red;
     }
 
+ 
 
     
     
     </style>  
             
     
-    
+            <head>
+              <link rel="stylesheet" href="brawlstars.stylesheet.css">
+             </head>   
     
     
     
@@ -80,14 +52,76 @@
             <body>
     
     
-                <nav>
-                  <a href="accueilbrawlstars.html">Accueil</a>
-                  <a href="brawlers.html">Brawlers</a>
-
-                 
+              <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  Ici, tu trouveras toutes les informations concernant le jeu vidéo Brawl Stars :
+                  <br>
+                  -Des brawlers
+                  <br>
+                  -Des maps
+                  <br>
+                  -Des gadgets et pouvoirs stars
+                  <br>
+                  <br>
+                  Pour les trouver, clique sur le menu en haut à gauche
+                  </p>
+                  <br>
+                  <a href="../boombeach/accueilboombeach.html">Suivant</a>
+                </div>
+              </div>
+              <script>
+              var modal = document.getElementById("myModal");
+              var span = document.getElementsByClassName("close")[0];
               
-              </nav>
+              span.onclick = function() {
+                modal.style.display = "none";
+              }
               
+              window.onclick = function(event) {
+                if (event.target == modal) {
+                  modal.style.display = "none";
+                }
+              }
+              
+              modal.style.display = "block";
+              </script>
+              <div id="mymenu" class="menu">
+                <a id="closeBtn" href="#" class="close">&times;</a>
+                <ul>
+                  <li><a href="accueilbrawlstars.html">Accueil</a></li>
+                  <li><a href="brawlers.html">Brawlers</a></li>
+                  <li><a href="maps.html">Événements/maps</a></li>
+                  <li><a href="maitrises.html">Maitrises</a></li>
+                  <li><a href="batiments.html">Gadgets/Pouvoirs Stars/Équipements</a></li>
+                </ul>
+              </div>
+              
+              <a href="#" id="openBtn">
+                <span class="burger-icon">
+                  <img src="https://i0.wp.com/is2-ssl.mzstatic.com/image/thumb/Purple126/v4/95/1e/0f/951e0f44-55ac-5235-e612-f1e0af785ba9/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg?w=1200&ssl=1" height="70">
+                  
+                </span>
+              </a>
+              
+              <script>
+                var menu = document.getElementById("mymenu");
+              var openBtn = document.getElementById("openBtn");
+              var closeBtn = document.getElementById("closeBtn");
+              
+              openBtn.onclick = openNav;
+              closeBtn.onclick = closeNav;
+              
+              /* Set the width of the side navigation to 250px */
+              function openNav() {
+              menu.classList.add("active");
+              }
+              
+              /* Set the width of the side navigation to 0 */
+              function closeNav() {
+              menu.classList.remove("active");
+              }
+              </script> 
               
             <div id="typewriter">    
             <h1>BRAWL<a href="index.html" class="S">S</a>TAR<a href="index.html" class="S">S</a></h1>
@@ -95,5 +129,5 @@
 
 <embed src="" autostart></embed>
 
-        
+       
     </body>          

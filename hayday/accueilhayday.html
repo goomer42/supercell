@@ -60,6 +60,39 @@
       color: red;
     }
 
+    .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+} 
 
     
     
@@ -79,15 +112,40 @@
             <body>
     
     
-                <nav>
-                  <a href="index.html">Accueil</a>
-                  <a href="village.html">HDV Bases</a>
-                  <a href="composattaque.html">Composattaque</a>
-                  <a href="troupes.html">Troupes</a>
-                  <a href="batiments.html">Batiments</a>
+              <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  Ici, tu trouveras toutes les informations concernant le jeu Hay day :
+                  <br>
+                  -Des fermes
+                  <br>
+                  -Des plantations
+                  <br>
+                  -Les batiments 
+                  <br>
+                  <br>
+                  Pour les trouver, clique sur le menu en haut à gauche
+                  </p>
+                  <br>
+                  <a href="../index.html">Terminer</a>
+                </div>
+              </div>
+              <script>
+              var modal = document.getElementById("myModal");
+              var span = document.getElementsByClassName("close")[0];
               
-              </nav>
+              span.onclick = function() {
+                modal.style.display = "none";
+              }
               
+              window.onclick = function(event) {
+                if (event.target == modal) {
+                  modal.style.display = "none";
+                }
+              }
+              
+              modal.style.display = "block";
+              </script>
               
             <div id="typewriter">    
             <h1>HAY DAY

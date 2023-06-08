@@ -3,39 +3,8 @@
 
 
 
-body{
-    padding:0;
-        margin: 0;
-        background-image:url( "https://play-lh.googleusercontent.com/EiElcSrd6-o-19roiswSx0AZPzsq6qF3hUGHsSWDl5UVtj7G23DHkneM8ucwqyOmEg");
-        background-size: contain;
-        background-repeat: repeat;
-}
-
-nav{
-      background-color: black;
-  
-  
-  
-  }
-
-nav a{
-    font-size: 30px;
-    height: 50px;
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-    font-family: "Open Sans", sans-serif;
-    padding-right: 15px;
-    padding-left: 15px;
-    padding-top: 15px;
-    border-right: solclass 0.5px grey;
-    margin: 0;
 
 
-}
-nav a:hover{
-          background-color: lightgrey;
-        } 
 
 
 
@@ -63,11 +32,187 @@ h1{
   color: red;
 }
 
+.searchBar{
+    display: flex;
+    align-items: center;
+}
+.searchBtn{
+    width: 50px;
+    height: 36px;
+    background-color: rgb(192, 192, 192);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
 
+.searchBtn img{
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+}
+
+.menu {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: -250px;
+  background-color: #e8e8e8;
+  padding-top: 60px;
+  transition: left 0.5s ease;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Sidenav menu links */
+.menu a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: #111;
+}
+
+/* Active class */
+.menu.active {
+  left: 0;
+}
+
+/* Close btn */
+.menu .close {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+.burger-icon span {
+  display: block;
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+}
+
+.search-container {
+  position: relative;
+  display: inline-block;
+}
+
+#search-bar {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+#suggestions {
+  position: absolute;
+  z-index: 999;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+#suggestions li {
+  padding: 12px 20px;
+  cursor: pointer;
+}
+
+#suggestions li:hover {
+  background-color: #ccc;
+}
+
+#suggestions {
+    display: none;
+
+}
+.search-box {
+  font-size: 20px;
+  border: solid 0.3em #000000;
+  display: inline-block;
+  position: relative;
+  border-radius: 2.5em;
+}
+.search-box input[type=text] {
+  font-family: inherit;
+  font-weight: bold;
+  width: 2.5em;
+  height: 2.5em;
+  padding: 0.3em 2.1em 0.3em 0.4em;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 2.5em;
+  transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
+}
+.search-box input[type=text]:focus {
+  outline: none;
+}
+.search-box input[type=text]:focus, .search-box input[type=text]:not(:placeholder-shown) {
+  width: 18em;
+  transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.search-box input[type=text]:focus + button[type=reset], .search-box input[type=text]:not(:placeholder-shown) + button[type=reset] {
+  transform: rotate(-45deg) translateY(0);
+  transition: transform 150ms ease-out 800ms;
+}
+.search-box input[type=text]:focus + button[type=reset]:after, .search-box input[type=text]:not(:placeholder-shown) + button[type=reset]:after {
+  opacity: 1;
+  transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
+}
+.search-box button[type=reset] {
+  background-color: transparent;
+  width: 1.4em;
+  height: 1.4em;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0.55em;
+  right: 0.55em;
+  transform: rotate(-45deg) translateY(2.2em);
+  transition: transform 150ms ease-out 150ms;
+}
+.search-box button[type=reset]:before, .search-box button[type=reset]:after {
+  content: "";
+  background-color: #000000;
+  width: 0.3em;
+  height: 1.4em;
+  position: absolute;
+}
+.search-box button[type=reset]:after {
+  transform: rotate(90deg);
+  opacity: 0;
+  transition: transform 150ms ease-out, opacity 150ms ease-out;
+}
 
 
 </style>  
-        
+   <head>
+    <link rel="stylesheet" href="brawlstars.stylesheet.css">
+   
+   </head>     
 
 
 
@@ -79,24 +224,121 @@ h1{
 
 
 
-        <body>
-
-
-            <nav>
-                <a href="accueilbrawlstars.html">Accueil</a>
-                <a href="brawlers.html">Brawlers</a>
-          
-          </nav>
+       
           
           
-        <div id="typewriter">    
-        <h1><a href="index.html" class="S">B</a>RAWLER<a href="index.html" class="S">S</a></h1>
+      
+
+<div id="mymenu" class="menu">
+  <a id="closeBtn" href="#" class="close">&times;</a>
+  <ul>
+    <li><a href="accueilbrawlstars.html">Accueil</a></li>
+    <li><a href="brawlers.html">Brawlers</a></li>
+    <li><a href="maps.html">Événements/maps</a></li>
+    <li><a href="maitrises.html">Maitrises</a></li>
+    <li><a href="batiments.html">Gadgets/Pouvoirs Stars/Équipements</a></li>
+  </ul>
 </div>
-<embed src="" autostart></embed>
 
-<a href="sheely.html" ><img src="http://pm1.narvii.com/7691/90c012e9c252853c0ae629a9abbba36f2762bee5r1-448-889v2_uhq.jpg" height="300"></a><a href="nita.html" ><img src="https://pm1.narvii.com/7176/b6c85cab85aa39870676dac9c821ce9605548253r1-1064-840v2_hq.jpg" height="300"></a><a href="colt.html" ><img src="https://mobidictum.com/wp-content/uploads/2019/03/supercell-art-colt-logo.jpg" height="300"></a></a><a href="bull.html" ><img src="http://mobileius.com/wp-content/uploads/2021/01/Como-Conseguir-Bull-Brawl-Stars.jpg" height="300"></a>
-</a><a href="jessie.html" ><img src="https://static.wikia.nocookie.net/brawlstars/images/1/15/Jessie_Skin-Default.png/revision/latest?cb=20220421111834" height="300"></a></a><a href="brock.html" ><img src="https://brawlstars-level.com/images/Brock-Sharpshooter-brawl-stars.jpg" height="300"></a></a><a href="dynamike.html" ><img src="https://www.gamehelper.top/wp-content/uploads/2020/06/dynamike-brawl-stars-guide.jpg" height="300"></a></a><a href="bo.html" ><img src="https://www.gamehelper.top/wp-content/uploads/2020/06/bo-brawl-stars-guide.jpg" height="300"></a></a><a href="tick.html" ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVenKQkJRVJOXzei45W-FQ1z3ArzAgAdeM2w&usqp=CAU" height="300"></a></a><a href="arkad.html" ><img src="https://www.jeumobi.com/wp-content/uploads/2021/07/guide-arkad-brawl-stars.jpeg" height="300"></a></a><a href="eliza.html" ><img src="https://j5p5w8p7.rocketcdn.me/wp-content/uploads/2019/10/brawl_stars_emz_brawler_halloween_wallpaper.jpg" height="300"></a></a><a href="stu.html" ><img src="https://www.jeumobi.com/wp-content/uploads/2021/07/guide-stu-brawl-stars.jpeg" height="300"width="600"></a>
-<a href=".html" ><img src="https://www.gamehelper.top/wp-content/uploads/2020/06/bo-brawl-stars-guide.jpg" height="300"></a><a href="bo.html" ><img src="https://www.gamehelper.top/wp-content/uploads/2020/06/bo-brawl-stars-guide.jpg" height="300"></a><a href="bo.html" ><img src="https://www.gamehelper.top/wp-content/uploads/2020/06/bo-brawl-stars-guide.jpg" height="300"></a><a href="bo.html" ><img src="https://www.gamehelper.top/wp-content/uploads/2020/06/bo-brawl-stars-guide.jpg" height="300"></a><a href="bo.html" ><img src="https://www.gamehelper.top/wp-content/uploads/2020/06/bo-brawl-stars-guide.jpg" height="300"></a><a href="bo.html" ><img src="https://www.gamehelper.top/wp-content/uploads/2020/06/bo-brawl-stars-guide.jpg" height="300"></a><a href="bo.html" ><img src="https://www.gamehelper.top/wp-content/uploads/2020/06/bo-brawl-stars-guide.jpg" height="300"></a><a href="bo.html" ><img src="https://www.gamehelper.top/wp-content/uploads/2020/06/bo-brawl-stars-guide.jpg" height="300"></a><a href="bo.html" ><img src="https://www.gamehelper.top/wp-content/uploads/2020/06/bo-brawl-stars-guide.jpg" height="300"></a>
-
+<a href="#" id="openBtn">
+  <span class="burger-icon">
+    <img src="https://i0.wp.com/is2-ssl.mzstatic.com/image/thumb/Purple126/v4/95/1e/0f/951e0f44-55ac-5235-e612-f1e0af785ba9/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg?w=1200&ssl=1" height="70">
     
-</body>          
+  </span>
+</a>
+
+<script>
+  var menu = document.getElementById("mymenu");
+var openBtn = document.getElementById("openBtn");
+var closeBtn = document.getElementById("closeBtn");
+
+openBtn.onclick = openNav;
+closeBtn.onclick = closeNav;
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+menu.classList.add("active");
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+menu.classList.remove("active");
+}
+</script> 
+
+<div id="typewriter">    
+  <h1><a href="index.html" class="S">B</a>RAWLER<a href="index.html" class="S">S</a></h1>
+</div>
+
+  <div class="searchBar">
+      <div class="textInput">       
+        <div class="search-box">
+            <input id="search-input" type="text" placeholder="Rechercher les brawlers (Mortis,Dynamike...)"/>
+            <button type="reset"></button>
+            <ul id="suggestions">
+                <li>Archers</li>
+                <li>barbare</li>
+        </div>
+      </div>
+  </div>
+
+  
+
+<script>
+let searchBtn=document.querySelector('.searchBtn');
+let search =  document.getElementById("search-input")
+
+
+
+
+search.addEventListener ('keydown', (e)=> {
+    console.log("key="+e.key)
+    if (e.key === "Enter") {
+        let search =  document.getElementById("search-input").value
+console.log(search)
+        let lastindex = window.location.href.lastIndexOf("/")
+let newurl = window.location.href.substring(0,lastindex)+"/brawlers/"+search+".html" 
+window.location.href = newurl
+       
+    }
+    search = null
+});
+</script>
+
+<script>
+const searchBar = document.getElementById('search-bar');
+const suggestions = document.getElementById('suggestions');
+
+// Liste des suggestions
+const suggestionsList = ['Chaussures', 'Chemises', 'Pantalons', 'Vestes', 'Accessoires'];
+
+searchBar.addEventListener('input', () => {
+  const input = searchBar.value.toLowerCase();
+  let matches = [];
+
+  if (input.length > 0) {
+    matches = suggestionsList.filter(suggestion => suggestion.toLowerCase().includes(input));
+  }
+
+  displaySuggestions(matches);
+});
+
+function displaySuggestions(matches) {
+  if (matches.length > 0 && !searchBar.matches(':focus')) { // Vérifier que la barre de recherche n'a pas le focus
+    const html = matches.map(match => `<li>${match}</li>`).join('');
+    suggestions.innerHTML = html;
+    suggestions.style.display = 'block';
+  } else {
+    suggestions.innerHTML = '';
+    suggestions.style.display = 'none';
+  }
+}
+
+document.addEventListener('click', event => {
+  if (event.target !== searchBar) {
+    suggestions.innerHTML = '';
+    suggestions.style.display = 'none';
+  }
+});
+  
+        
