@@ -1,0 +1,48 @@
+<head>
+    <link rel="stylesheet" href="brawlstars.stylesheet.css">
+</head>
+<style>
+
+</style>
+<html>
+    <body>
+        <h1>Maps Brawl Stars</h1>
+        <div id="mymenu" class="menu">
+            <a id="closeBtn" href="#" class="close">&times;</a>
+            <ul>
+              <li><a href="accueilbrawlstars.html">Accueil</a></li>
+              <li><a href="brawlers.html">Brawlers</a></li>
+              <li><a href="maps.html">Événements/maps</a></li>
+              <li><a href="maitrises.html">Maitrises</a></li>
+              <li><a href="batiments.html">Gadgets/Pouvoirs Stars/Équipements</a></li>
+            </ul>
+          </div>
+          
+          <a href="#" id="openBtn">
+            <span class="burger-icon">
+              <img src="https://i0.wp.com/is2-ssl.mzstatic.com/image/thumb/Purple126/v4/95/1e/0f/951e0f44-55ac-5235-e612-f1e0af785ba9/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg?w=1200&ssl=1" height="70">
+              
+            </span>
+          </a>
+          
+          <script>
+            var menu = document.getElementById("mymenu");
+          var openBtn = document.getElementById("openBtn");
+          var closeBtn = document.getElementById("closeBtn");
+          
+          openBtn.onclick = openNav;
+          closeBtn.onclick = closeNav;
+          
+          /* Set the width of the side navigation to 250px */
+          function openNav() {
+          menu.classList.add("active");
+          }
+          
+          /* Set the width of the side navigation to 0 */
+          function closeNav() {
+          menu.classList.remove("active");
+          }
+          </script> 
+          
+    </body>
+</html>
