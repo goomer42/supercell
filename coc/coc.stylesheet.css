@@ -2,7 +2,7 @@
   body{
     padding:0;
     margin: 0;
-    background-image:url( "https://playblogdotfr.files.wordpress.com/2023/04/83fzymo9zs-hd.jpg?w=1200");width: 100;
+    background-image:url( "https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC9FcHl0Vk5ZZlp4QnRuOHRVYnVYcC5wbmcifQ:supercell:6yO7PUG6JIfn7SNykSCI1FfNHOSs0L8LlF_1tRCQMVc?width=800");width: 100;
     background-size: contain;
     background-repeat: cover;
 }
@@ -19,6 +19,9 @@ animation:
 typing 3.5s steps(40, end),
 blink-caret .75s step-end infinite;
 text-decoration: none;
+position: absolute;
+white-space: nowrap;
+
 
 }
 
@@ -28,16 +31,11 @@ text-decoration: none;
   }
 
     
-    embed{
-    background: none;
-      }
-      nav{
-        background-color: black;
-        
+   
     
     
     
-    }
+    
     nav a{
          font-size: 30px;
          height: 50px;
@@ -61,6 +59,9 @@ text-decoration: none;
     @keyframes typing {
         from { width: 0 }
         to { width: 100% }
+      }
+      #typewriter{
+        position: absolute;
       }
 
       
