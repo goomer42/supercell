@@ -19,7 +19,6 @@ animation:
 typing 3.5s steps(40, end),
 blink-caret .75s step-end infinite;
 text-decoration: none;
-position: absolute;
 white-space: nowrap;
 
 
@@ -60,9 +59,7 @@ white-space: nowrap;
         from { width: 0 }
         to { width: 100% }
       }
-      #typewriter{
-        position: absolute;
-      }
+     
 
       
  
