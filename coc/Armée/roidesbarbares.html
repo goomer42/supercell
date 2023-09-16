@@ -132,7 +132,7 @@
   }
   .text{
     color: red;
-    padding-top: 5%;
+    padding-top: 0%;
     padding-left: 5%;
     font-size: 20px;
     font-weight: bold;
@@ -317,25 +317,37 @@
   <a onclick="openpekkaking()">Pekka King</a>
 
   <script>
-  
 
-    function openbarbarianking(){
+
+
+
+
+  function closealldiv(){
+    document.getElementById("barbarianking").style.display="none";
+    document.getElementById("gladiatorking").style.display="none";
+    document.getElementById("pekkaking").style.display="none";
+    document.getElementById("futureking").style.display="none";
+  }
+
+   
+  function openbarbarianking(){
+      closealldiv();
       document.getElementById("barbarianking").style.display="block";
-      document.getElementById("gladiatorking").style.display="none";
-      document.getElementById("pekkaking").style.display="block";
-      
-    }
+   
+   }
     function opengladiatorking(){
-      document.getElementById("barbarianking").style.display="none";
+      closealldiv();
       document.getElementById("gladiatorking").style.display="block";
-      document.getElementById("pekkaking").style.display="none";
+    
     }
     function openpekkaking(){
-      document.getElementById("barbarianking").style.display="none";
-      document.getElementById("gladiatorking").style.display="none";
+      closealldiv();
       document.getElementById("pekkaking").style.display="block";
     }
-  
+  function openfutureking(){
+   closealldiv();
+    document.getElementById("futureking").style.display="block";
+  }
     
     
     
@@ -343,7 +355,8 @@
     </script>
   
   <div class="générale">
-    <div class="icones"><img src="../iconeroifuturiste.jpg" height="60"><img src="../iconeroigobelin.jpg" height="60"></div>
+    <div class="icones">
+      <a onclick="openfutureking()"><img src="../iconeroifuturiste.jpg" height="60"></a><img src="../iconeroigobelin.jpg" height="60"></div>
 
     <div id="barbarianking">
       <div class="text">Barbarian king</div>
@@ -372,7 +385,7 @@
     <div id="christmasking">
       <div class="text">Christmas King</div>
       <div id="raritycommun">Commun</div>
-      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/7/73/Clashofclans-roi-des-barbares-Skin-gladiateur.png" height="300px" style="padding-top: 5%;">
+      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/3/3f/Clashofclans-roi-des-barbares-Skin-Pere_Royal.png" height="300px" style="padding-top: 5%;">
       </div>
       
     <div id="primitifking">
@@ -384,22 +397,22 @@
     <div id="mechanicking">
       <div class="text">Mechanic King</div>
       <div id="raritycommun">Commun</div>
-      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/7/73/Clashofclans-roi-des-barbares-Skin-gladiateur.png" height="300px" style="padding-top: 5%;"></div>
+      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/c/c8/Clashofclans-roi-des-barbares-Skin-M%C3%A9canique.png" height="300px" style="padding-top: 5%;"></div>
       
     <div id="partyking">
       <div class="text">Party King</div>
       <div id="raritycommun">Commun</div>
-      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/7/73/Clashofclans-roi-des-barbares-Skin-gladiateur.png" height="300px" style="padding-top: 5%;"></div>
+      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/5/57/Clashofclans-roi-des-barbares-Skin-Fetard.png" height="300px" style="padding-top: 5%;"></div>
       
     <div id="championking">
       <div class="text">Champion King</div>
       <div id="raritycommun">Commun</div>
-      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/7/73/Clashofclans-roi-des-barbares-Skin-gladiateur.png" height="300px" style="padding-top: 5%;"></div>
+      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/9/98/Clashofclans-roi-des-barbares-Skin-Champion.png" height="300px" style="padding-top: 5%;"></div>
       
     <div id="pirateking">
       <div class="text">Pirate King</div>
       <div id="raritycommun">Commun</div>
-      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/7/73/Clashofclans-roi-des-barbares-Skin-gladiateur.png" height="300px" style="padding-top: 5%;"></div>
+      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/9/93/Clashofclans-roi-des-barbares-Skin-Pirate.png" height="300px" style="padding-top: 5%;"></div>
       
     <div id="warriorking">
       <div class="text">Warrior King</div>
@@ -419,7 +432,7 @@
     <div id="jungleking">
       <div class="text">Jungle King</div>
       <div id="raritycommun">Commun</div>
-      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/7/73/Clashofclans-roi-des-barbares-Skin-gladiateur.png" height="300px" style="padding-top: 5%;"></div>
+      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/6/6d/Clashofclans-roi-des-barbares-Skin-Jungle.png" height="300px" style="padding-top: 5%;"></div>
       
     <div id="danceking">
       <div class="text">Dance King</div>
@@ -429,7 +442,7 @@
     <div id="golemking">
       <div class="text">Golem King</div>
       <div id="raritycommun">Commun</div>
-      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/7/73/Clashofclans-roi-des-barbares-Skin-gladiateur.png" height="300px" style="padding-top: 5%;"></div>
+      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/9/97/Clashofclans-roi-des-barbares-Skin-Golem.png" height="300px" style="padding-top: 5%;"></div>
       
     <div id="iceking">
       <div class="text">Ice King</div>
@@ -439,7 +452,7 @@
     <div id="lunarking">
       <div class="text">Lunar King</div>
       <div id="raritycommun">Commun</div>
-      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/7/73/Clashofclans-roi-des-barbares-Skin-gladiateur.png" height="300px" style="padding-top: 5%;"></div>
+      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/4/44/Clashofclans-roi-des-barbares-Skin-Lunaire.png" height="300px" style="padding-top: 5%;"></div>
       
     <div id="shadowking">
       <div class="text">Shadow King</div>
@@ -449,12 +462,12 @@
     <div id="summerking">
       <div class="text">Summer King</div>
       <div id="raritycommun">Commun</div>
-      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/7/73/Clashofclans-roi-des-barbares-Skin-gladiateur.png" height="300px" style="padding-top: 5%;"></div>
+      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/a/a2/Clashofclans-roi-des-barbares-Skin-estivale.png" height="300px" style="padding-top: 5%;"></div>
       
     <div id="pixelking">
       <div class="text">Pixel King</div>
       <div id="raritycommun">Commun</div>
-      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/7/73/Clashofclans-roi-des-barbares-Skin-gladiateur.png" height="300px" style="padding-top: 5%;"></div>
+      <div class="BarbarianSkinBase"><img src="https://wiki.clashofclans.fr/images/4/43/Clashofclans-roi-des-barbares-Skin-pixelise.png" height="300px" style="padding-top: 5%;"></div>
       
     <div id="clashfestking">
       <div class="text">ClashFest King</div>
@@ -560,7 +573,7 @@
   </script>
   </tr>
   <script>
-    openbarbarianking()
+   openbarbarianking()
   </script>
   </table>
  
