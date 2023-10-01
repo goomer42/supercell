@@ -1,0 +1,187 @@
+<style>
+.giver{
+    display: none
+}
+#nomgiver , #nomreceiver{
+height: 20;
+width: 100;
+border: solid;
+text-align: center;
+}
+#nomgiver , #nomreceiver, #phrase{
+display: inline-block;}
+
+html{
+    background-image: url(https://img.freepik.com/free-vector/gradient-christmas-tinsel-background_52683-76117.jpg);
+    background-size: cover;
+}
+p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+button{
+    background-color: transparent;
+    border: none;
+}
+</style>
+
+<head>
+
+</head>
+
+<html>
+    <body>
+   
+
+       
+        <script>
+
+
+const tableaugiver = [
+{ nom: "Papibois" , famille: "douine1" , génération:"3"},
+{ nom: "Maminou" , famille: "douine" , génération:"3"},
+{ nom: "Manu" , famille: "douine2" , génération:"2"},
+{ nom: "Camille 2" , famille: "douine2" , génération:"2"},
+{ nom: "Suzie" , famille: "douine2" , génération:"1"},
+{ nom: "Marin" , famille: "douine2" , génération:"1"},
+{ nom: "Maylis" , famille: "douine3" , génération:"2"},
+{ nom: "Clément" , famille: "douine5" , génération:"2"},
+{ nom: "Céline" , famille: "douine5" , génération:"1"},
+{ nom: "Titouan" , famille: "douine5" , génération:"1"},
+{ nom: "Hugo" , famille: "douine5" , génération:"1"},
+{ nom: "Camille 1" , famille: "douine6" , génération:"2"},
+{ nom: "Damien" , famille: "douine6" , génération:"2"},
+{ nom: "Lila" , famille: "douine6" , génération:"1"},
+{ nom: "Coline" , famille: "douine6" , génération:"1"},
+{ nom: "Priscille" , famille: "douine7" , génération:"2"},
+{ nom: "Alex L" , famille: "douine7" , génération:"2"},
+{ nom: "Lana" , famille: "douine7" , génération:"1"},
+{ nom: "Chloé" , famille: "douine7" , génération:"1"},
+{ nom: "Florent" , famille: "douine8" , génération:"2"},
+{ nom: "Sam" , famille: "douine8" , génération:"1"},
+{ nom: "Martine" , famille: "douine9" , génération:"3"},
+{ nom: "Cécile" , famille: "douine9" , génération:"2"},
+{ nom: "Will" , famille: "douine9" , génération:"2"},
+{ nom: "Rose" , famille: "douine9" , génération:""},
+{ nom: "Soline" , famille: "douine9" , génération:""},
+{ nom: "Alex I" , famille: "douine9" , génération:"2"},
+{ nom: "Élule" , famille: "douine10" , génération:"2"},
+{ nom: "Sacha" , famille: "douine10" , génération:"2"},
+{ nom: "Haikim" , famille: "douine10" , génération:""}
+]
+
+
+
+
+
+const tableaureceiver = [
+{ nom: "Papibois" , famille: "douine1" , génération:"3"},
+{ nom: "Maminou" , famille: "douine1" , génération:"1"},
+{ nom: "Manu" , famille: "douine2" , génération:"2"},
+{ nom: "Camille 2" , famille: "douine2" , génération:"2"},
+{ nom: "Suzie" , famille: "douine2" , génération:"1"},
+{ nom: "Marin" , famille: "douine2" , génération:"1"},
+{ nom: "Maylis" , famille: "douine3" , génération:"2"},
+{ nom: "Clément" , famille: "douine4" , génération:"2"},
+{ nom: "Céline" , famille: "douine4" , génération:"2"},
+{ nom: "Titouan" , famille: "douine5" , génération:"1"},
+{ nom: "Hugo" , famille: "douine5" , génération:"1"},
+{ nom: "Camille 1" , famille: "douine6" , génération:"2"},
+{ nom: "Damien" , famille: "douine6" , génération:"2"},
+{ nom: "Lila" , famille: "douine6" , génération:"1"},
+{ nom: "Coline" , famille: "douine6" , génération:"1"},
+{ nom: "Priscille" , famille: "douine7" , génération:"2"},
+{ nom: "Alex L" , famille: "douine7" , génération:"2"},
+{ nom: "Lana" , famille: "douine7" , génération:"1"},
+{ nom: "Chloé" , famille: "douine7" , génération:"1"},
+{ nom: "Florent" , famille: "douine8" , génération:"2"},
+{ nom: "Sam" , famille: "douine8" , génération:"1"},
+{ nom: "Martine" , famille: "douine9" , génération:"3"},
+{ nom: "Cécile" , famille: "douine9" , génération:"2"},
+{ nom: "Will" , famille: "douine9" , génération:"2"},
+{ nom: "Rose" , famille: "douine9" , génération:""},
+{ nom: "Soline" , famille: "douine9" , génération:""},
+{ nom: "Alex I" , famille: "douine9" , génération:"2"},
+{ nom: "Élule" , famille: "douine10" , génération:"2"},
+{ nom: "Sacha" , famille: "douine10" , génération:"2"},
+{ nom: "Haikim" , famille: "douine10" , génération:""}
+]
+
+
+ 
+function chooseagiver() {
+return Math.floor((Math.random() * 30) + 1);
+ };
+
+ function chooseareceiver(){
+return Math.floor((Math.random() * 30) + 1);
+ };
+
+ const giveraleatoire = chooseagiver();
+ const receiveraleatoire = chooseareceiver();
+
+console.log(giveraleatoire)
+console.log(receiveraleatoire)
+
+const giver = tableaugiver[giveraleatoire - 1].nom
+const famillegiver = tableaugiver[giveraleatoire - 1].famille
+const gengiver = tableaugiver[giveraleatoire - 1].génération
+
+const receiver = tableaureceiver[receiveraleatoire - 1].nom
+const famillereceiver = tableaureceiver[receiveraleatoire - 1].famille
+const genreceiver = tableaureceiver[receiveraleatoire - 1].génération
+
+const listegiver2 = [];
+const listereceiver2 = [];
+
+if (giveraleatoire === receiveraleatoire) {
+ chooseagiver();
+}
+
+ else if (famillegiver === famillereceiver) {
+   chooseagiver();
+ }
+ else if (gengiver === 3 && genreceiver === 1) {
+    chooseagiver();
+ }
+ else if (listegiver2.includes(giver)){
+    chooseagiver();
+ }
+
+ else {
+        listegiver2.push(giver);
+        listereceiver2.push(receiver);
+        const nomgiver = document.getElementById('nomgiver')
+        const nomreceiver = document.getElementById('nomreceiver')
+    };
+
+
+
+console.log(giver)
+console.log(receiver)
+console.log(listegiver2)
+console.log(listereceiver2)
+
+
+
+
+
+
+
+
+           
+     </script>
+
+   <p id="phrase">C'est<div id="nomgiver"></div>qui fait un cadeau à <div id="nomreceiver"></div></p>  
+    </body>
+    <button onclick="chooseagiver()">Choisir un donneur</button>
+    <button onclick="chooseareceiver()">Choisir un receveur</button>
+<script>
+ 
+nomgiver.textContent = giver;
+nomreceiver.textContent = receiver
+
+</script>
+</html>
