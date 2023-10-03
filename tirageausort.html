@@ -7,6 +7,10 @@ height: 20;
 width: 100;
 border: solid;
 text-align: center;
+overflow: scroll;
+}
+::-webkit-scrollbar{
+    display: none;
 }
 #nomgiver , #nomreceiver, #phrase{
 display: inline-block;}
@@ -25,6 +29,9 @@ button{
     background-color: transparent;
     border: none;
 }
+#nomgiver{
+    height: 20;
+}
 </style>
 
 <head>
@@ -39,7 +46,7 @@ button{
         <script>
 
 
-const tableaugiver = [
+var tableaugiver = [
 { nom: "Papibois" , famille: "douine1" , génération:"3"},
 { nom: "Maminou" , famille: "douine" , génération:"3"},
 { nom: "Manu" , famille: "douine2" , génération:"2"},
@@ -76,7 +83,7 @@ const tableaugiver = [
 
 
 
-const tableaureceiver = [
+var tableaureceiver = [
 { nom: "Papibois" , famille: "douine1" , génération:"3"},
 { nom: "Maminou" , famille: "douine1" , génération:"1"},
 { nom: "Manu" , famille: "douine2" , génération:"2"},
@@ -112,29 +119,33 @@ const tableaureceiver = [
 
  
 function chooseagiver() {
+var giveraleatoire = null
 return Math.floor((Math.random() * 30) + 1);
+
  };
+ var giveraleatoire = chooseagiver();
 
  function chooseareceiver(){
+var receiveraleatoire = null
 return Math.floor((Math.random() * 30) + 1);
- };
 
- const giveraleatoire = chooseagiver();
- const receiveraleatoire = chooseareceiver();
+ };
+ var receiveraleatoire = chooseareceiver();
+
 
 console.log(giveraleatoire)
 console.log(receiveraleatoire)
 
-const giver = tableaugiver[giveraleatoire - 1].nom
-const famillegiver = tableaugiver[giveraleatoire - 1].famille
-const gengiver = tableaugiver[giveraleatoire - 1].génération
+var giver = tableaugiver[giveraleatoire - 1].nom
+var famillegiver = tableaugiver[giveraleatoire - 1].famille
+var gengiver = tableaugiver[giveraleatoire - 1].génération
 
-const receiver = tableaureceiver[receiveraleatoire - 1].nom
-const famillereceiver = tableaureceiver[receiveraleatoire - 1].famille
-const genreceiver = tableaureceiver[receiveraleatoire - 1].génération
+var receiver = tableaureceiver[receiveraleatoire - 1].nom
+var famillereceiver = tableaureceiver[receiveraleatoire - 1].famille
+var genreceiver = tableaureceiver[receiveraleatoire - 1].génération
 
-const listegiver2 = [];
-const listereceiver2 = [];
+var listegiver2 = [];
+var listereceiver2 = [];
 
 if (giveraleatoire === receiveraleatoire) {
  chooseagiver();
@@ -153,8 +164,8 @@ if (giveraleatoire === receiveraleatoire) {
  else {
         listegiver2.push(giver);
         listereceiver2.push(receiver);
-        const nomgiver = document.getElementById('nomgiver')
-        const nomreceiver = document.getElementById('nomreceiver')
+        var nomgiver = document.getElementById('nomgiver')
+        var nomreceiver = document.getElementById('nomreceiver')
     };
 
 
@@ -174,10 +185,30 @@ console.log(listereceiver2)
            
      </script>
 
-   <p id="phrase">C'est<div id="nomgiver"></div>qui fait un cadeau à <div id="nomreceiver"></div></p>  
+   <p id="phrase">
+    C'est
+    <div id="nomgiver">
+        <div>Titouan</div>
+        <br>
+        <div>Marin</div>
+        <br>
+        <div>Suzie</div>
+        <br>
+        <div>Florent</div>
+        <br>
+        <div>Manu</div>
+
+    </div>
+    qui fait un cadeau à 
+    <div id="nomreceiver">
+
+    </div>
+</p>  
+
+   <a onclick="chooseagiver()">Donneur</a>
+    <a onclick="chooseareceiver()">Receveur</a>
     </body>
-    <button onclick="chooseagiver()">Choisir un donneur</button>
-    <button onclick="chooseareceiver()">Choisir un receveur</button>
+    
 <script>
  
 nomgiver.textContent = giver;
