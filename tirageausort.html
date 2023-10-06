@@ -1,3 +1,4 @@
+
 <style>
 .giver{
     display: none
@@ -40,15 +41,16 @@ button{
 
 <html>
     <body>
-   
-
+<!-- Garde l'HTML pour la fin, il faut d'abord que ton script marche et réussisse correctement à générer les couples giver/receiver. 
+    Ensuite si tu veux l'afficher de manière jolie, tu pourras le faire via l'HTML, mais dans un premier temps le console.log("") suffira.
+-->
        
         <script>
 
 
 var tableaugiver = [
 { nom: "Papibois" , famille: "douine1" , génération:"3"},
-{ nom: "Maminou" , famille: "douine" , génération:"3"},
+{ nom: "Maminou" , famille: "douine" , génération:"3"}, // douine1 ici non ?
 { nom: "Manu" , famille: "douine2" , génération:"2"},
 { nom: "Camille 2" , famille: "douine2" , génération:"2"},
 { nom: "Suzie" , famille: "douine2" , génération:"1"},
@@ -82,6 +84,7 @@ var tableaugiver = [
 
 
 
+// Normalement un seul tableau suffit ;) 
 
 var tableaureceiver = [
 { nom: "Papibois" , famille: "douine1" , génération:"3"},
@@ -117,15 +120,23 @@ var tableaureceiver = [
 ]
 
 
- 
+/* 
+Attention à bien indenter tes fonctions, tu risques de te perdre sinon.
+Par exemple pour celle en dessous :
 function chooseagiver() {
-var giveraleatoire = null
+    var giveraleatoire = null
+    return Math.floor((Math.random() * 30) + 1);
+}
+*/
+
+function chooseagiver() {
+var giveraleatoire = null // Ici tu créé une variable dans ta fonction, elle ne servira que dedans. Et tu ne l'utilise pas, donc tu peux la supprimer je pense
 return Math.floor((Math.random() * 30) + 1);
 
  };
  var giveraleatoire = chooseagiver();
 
- function chooseareceiver(){
+ function chooseareceiver(){ // Les 2 fonctions font la même chose non ? :-) 
 var receiveraleatoire = null
 return Math.floor((Math.random() * 30) + 1);
 
@@ -147,6 +158,16 @@ var genreceiver = tableaureceiver[receiveraleatoire - 1].génération
 var listegiver2 = [];
 var listereceiver2 = [];
 
+// Les conditions sont biens en soit mais il te manque pas mal de choses.
+// Déjà ton script ne va afficher qu'un couple giver/receiver. Il te manque une boucle for quelque part pour que tout le monde puisse passer.
+// Je te propose une autre approche, peut-être plus simple à mettre en place : 
+// Etape 1 : Tu mélanges ton tableau de nom via une fonction shuffle que tu peux trouver sur internet je pense
+// Etape 2 : Tu prend le premier nom qui sera le giver, le second le receiver.
+// Etape 3 : Tu vérifies que ça respecte bien toutes les conditions du dessous, sinon tu stoppes tout et reprends à l'étape 1
+// Etape 4 : Tu ajoutes dans un tableau le résultat avec giver et receiver, comme tu le fais en dessous
+// Etape 5 : Ensuite tu continues à parcourir ton tableau avec le 2ème qui donne au 3ème etc...
+// Etape 6 : Si tu arrives au bout du tableau et que toutes les conditions sont réunis, alors seulement à ce moment là, tu viens reparcourir ton tableau de résultat pour afficher les couples
+// Etape 7 : Tu as réussi, tu peux aller te prendre une bière... Oups non ça c'est moi... :D 
 if (giveraleatoire === receiveraleatoire) {
  chooseagiver();
 }
