@@ -1,5 +1,8 @@
 <style>
-
+#finale{
+    height: auto;
+    border: black;
+}
 </style>
 
 <script>
@@ -36,16 +39,63 @@
 { nom: "Haikim" , famille: "douine10" , génération:""}
 ]
 
+
+var shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random());
 console.log(tableaunoms)
 
+var listefinale = [];
+var phrase  = ""
 
 
-for (let giveraleatoire = 0 ; giveraleatoire < 30;) {
-    
-    var shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random());
-    var giver = tableaunoms[giveraleatoire].nom
-    console.log(giver)
-    giveraleatoire = +1
+for (let giveraleatoire = 1; giveraleatoire < 30; giveraleatoire++) {
+
+console.log(giveraleatoire)
+var giver = tableaunoms[giveraleatoire - 1].nom
+var famillegiver = tableaunoms[giveraleatoire - 1].famille
+var gengiver = tableaunoms[giveraleatoire - 1].génération
+
+var receiver = tableaunoms[giveraleatoire].nom
+var famillereceiver = tableaunoms[giveraleatoire].famille
+var genreceiver = tableaunoms[giveraleatoire].génération
+console.log(giver)
+console.log(receiver)
+
+    if (famillegiver === famillereceiver) {
+        listefinale = []
+        giveraleatoire = 0
+         shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random())
+    }
+
+    else if (gengiver === 3 && genreceiver === 1) {
+        listefinale = []
+        giveraleatoire = 0
+         shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random())
+     }   
+     else if (giveraleatoire === 30 ){
+        giver = tableaunoms[29].nom
+        receiver = tableaunoms[0].nom
+       console.log(receiver)
+        let phrase  = "C'est " + giver + " qui fait un cadeau à " + receiver ;
+       listefinale.push(phrase)
+       console.log(phrase)
+       console.log(listefinale)
+       
         
+    }  
+     else {
+        let phrase  = "C'est " + giver + " qui fait un cadeau à " + receiver ;
+       listefinale.push(phrase)
+       console.log(phrase)
+       console.log(listefinale)
+     }
+    
     };
+    const mots = listefinale.split(" ");
+    const premiergiver = mots[2];
+    console.log(premiergiver)
+    const derniergiver = mots[listefinale.length - 1]
+    listefinale.push("C'est ", derniergiver, "qui fait un cadeau à ", premiergiver)
+    console.log(listefinale)
+
+
 </script>
