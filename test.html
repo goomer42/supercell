@@ -53,49 +53,37 @@ console.log(giveraleatoire)
 var giver = tableaunoms[giveraleatoire - 1].nom
 var famillegiver = tableaunoms[giveraleatoire - 1].famille
 var gengiver = tableaunoms[giveraleatoire - 1].génération
-
+console.log(gengiver)
 var receiver = tableaunoms[giveraleatoire].nom
 var famillereceiver = tableaunoms[giveraleatoire].famille
 var genreceiver = tableaunoms[giveraleatoire].génération
 console.log(giver)
 console.log(receiver)
+console.log(genreceiver)
 
-    if (famillegiver === famillereceiver) {
-        listefinale = []
+    if (gengiver === 3 && genreceiver === 1) {
+        shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random())
+         listefinale = []
         giveraleatoire = 0
-         shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random())
-    }
-
-    else if (gengiver === 3 && genreceiver === 1)  {
-        listefinale = []
+    } 
+    else if (famillegiver === famillereceiver) {
+        shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random())
+         listefinale = []
         giveraleatoire = 0
-         shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random())
-     }   
-     else if (giveraleatoire === 30 ){
-        giver = tableaunoms[29].nom
-        receiver = tableaunoms[0].nom
-       console.log(receiver)
+  }   
+   else {
         let phrase  = "C'est " + giver + " qui fait un cadeau à " + receiver ;
        listefinale.push(phrase)
        console.log(phrase)
-       console.log(listefinale)
-       
-        
-    }  
-     else {
-        let phrase  = "C'est " + giver + " qui fait un cadeau à " + receiver ;
-       listefinale.push(phrase)
-       console.log(phrase)
-       console.log(listefinale)
+       console.log(listefinale.length)
      }
+
+        
+     console.log(listefinale)
+
     
     };
-    const mots = listefinale.split(" ");
-    const premiergiver = mots[2];
-    console.log(premiergiver);
-    const derniergiver = mots[listefinale.length - 1];
-    listefinale.push("C'est ", derniergiver, "qui fait un cadeau à ", premiergiver);
-    console.log(listefinale);
+ 
 
 
 </script>
