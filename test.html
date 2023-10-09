@@ -6,6 +6,7 @@
 </style>
 
 <script>
+    // Prend l'habitude de tout nommer en anglais. Ex: namesArray, family, generation,, finalList ;)
     var tableaunoms = [
 { nom: "Papibois" , famille: "douine1" , génération:"3"},
 { nom: "Maminou" , famille: "douine1" , génération:"3"},
@@ -34,9 +35,9 @@
 { nom: "Rose" , famille: "douine9" , génération:""},
 { nom: "Soline" , famille: "douine9" , génération:""},
 { nom: "Alex I" , famille: "douine9" , génération:"2"},
-{ nom: "Élule" , famille: "douine10" , génération:"2"},
+{ nom: "Élule" , famille: "douine10" , génération:"2"}, // Eylül ;)
 { nom: "Sacha" , famille: "douine10" , génération:"2"},
-{ nom: "Haikim" , famille: "douine10" , génération:""}
+{ nom: "Haikim" , famille: "douine10" , génération:""} // Ekim ;)
 ]
 
 
@@ -61,8 +62,8 @@ console.log(giver)
 console.log(receiver)
 console.log(genreceiver)
 
-    if (famillegiver === famillereceiver) {
-        shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random())
+    if (famillegiver === famillereceiver) { // == suffit ici.
+        shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random()) // Ca peut être bien de mettre ça dans une fonction
          listefinale = []
         giveraleatoire = 0
   } 
@@ -73,6 +74,8 @@ console.log(genreceiver)
     } 
     
    else {
+        // Le problème ici c'est que tu va afficher la phrase même si toutes les conditions du tirage global ne sont pas réunies. Tu vas donc avoir des doublons.
+        // Mieux vaut écrire toutes les phrases à la fin, en parcourant ton tableau listfinale
         let phrase  = "C'est " + giver + " qui fait un cadeau à " + receiver ;
        listefinale.push(phrase)
        console.log(phrase)
