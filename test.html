@@ -61,16 +61,17 @@ console.log(giver)
 console.log(receiver)
 console.log(genreceiver)
 
-    if (gengiver === 3 && genreceiver === 1) {
+    if (famillegiver === famillereceiver) {
+        shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random())
+         listefinale = []
+        giveraleatoire = 0
+  } 
+   else  if (gengiver === 3 && genreceiver === 1) {
         shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random())
          listefinale = []
         giveraleatoire = 0
     } 
-    else if (famillegiver === famillereceiver) {
-        shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random())
-         listefinale = []
-        giveraleatoire = 0
-  }   
+    
    else {
         let phrase  = "C'est " + giver + " qui fait un cadeau à " + receiver ;
        listefinale.push(phrase)
