@@ -1,239 +1,196 @@
-
 <style>
-.giver{
-    display: none
-}
-#nomgiver , #nomreceiver{
-height: 20;
-width: 100;
-border: solid;
-text-align: center;
-overflow: scroll;
-}
-::-webkit-scrollbar{
-    display: none;
-}
-#nomgiver , #nomreceiver, #phrase{
-display: inline-block;}
-
-html{
-    background-image: url(https://img.freepik.com/free-vector/gradient-christmas-tinsel-background_52683-76117.jpg);
-    background-size: cover;
-}
-p{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    #finale{
+        height: auto;
+        border: black;
+    }
+    </style>
     
-}
-button{
-    background-color: transparent;
-    border: none;
-}
-#nomgiver{
-    height: 20;
-}
-</style>
-
-<head>
-
-</head>
-
-<html>
-    <body>
-<!-- Garde l'HTML pour la fin, il faut d'abord que ton script marche et réussisse correctement à générer les couples giver/receiver. 
-    Ensuite si tu veux l'afficher de manière jolie, tu pourras le faire via l'HTML, mais dans un premier temps le console.log("") suffira.
--->
-       
-        <script>
-
-
-var tableaugiver = [
-{ nom: "Papibois" , famille: "douine1" , génération:"3"},
-{ nom: "Maminou" , famille: "douine" , génération:"3"}, // douine1 ici non ?
-{ nom: "Manu" , famille: "douine2" , génération:"2"},
-{ nom: "Camille 2" , famille: "douine2" , génération:"2"},
-{ nom: "Suzie" , famille: "douine2" , génération:"1"},
-{ nom: "Marin" , famille: "douine2" , génération:"1"},
-{ nom: "Maylis" , famille: "douine3" , génération:"2"},
-{ nom: "Clément" , famille: "douine5" , génération:"2"},
-{ nom: "Céline" , famille: "douine5" , génération:"1"},
-{ nom: "Titouan" , famille: "douine5" , génération:"1"},
-{ nom: "Hugo" , famille: "douine5" , génération:"1"},
-{ nom: "Camille 1" , famille: "douine6" , génération:"2"},
-{ nom: "Damien" , famille: "douine6" , génération:"2"},
-{ nom: "Lila" , famille: "douine6" , génération:"1"},
-{ nom: "Coline" , famille: "douine6" , génération:"1"},
-{ nom: "Priscille" , famille: "douine7" , génération:"2"},
-{ nom: "Alex L" , famille: "douine7" , génération:"2"},
-{ nom: "Lana" , famille: "douine7" , génération:"1"},
-{ nom: "Chloé" , famille: "douine7" , génération:"1"},
-{ nom: "Florent" , famille: "douine8" , génération:"2"},
-{ nom: "Sam" , famille: "douine8" , génération:"1"},
-{ nom: "Martine" , famille: "douine9" , génération:"3"},
-{ nom: "Cécile" , famille: "douine9" , génération:"2"},
-{ nom: "Will" , famille: "douine9" , génération:"2"},
-{ nom: "Rose" , famille: "douine9" , génération:""},
-{ nom: "Soline" , famille: "douine9" , génération:""},
-{ nom: "Alex I" , famille: "douine9" , génération:"2"},
-{ nom: "Élule" , famille: "douine10" , génération:"2"},
-{ nom: "Sacha" , famille: "douine10" , génération:"2"},
-{ nom: "Haikim" , famille: "douine10" , génération:""}
-]
-
-
-
-
-// Normalement un seul tableau suffit ;) 
-
-var tableaureceiver = [
-{ nom: "Papibois" , famille: "douine1" , génération:"3"},
-{ nom: "Maminou" , famille: "douine1" , génération:"1"},
-{ nom: "Manu" , famille: "douine2" , génération:"2"},
-{ nom: "Camille 2" , famille: "douine2" , génération:"2"},
-{ nom: "Suzie" , famille: "douine2" , génération:"1"},
-{ nom: "Marin" , famille: "douine2" , génération:"1"},
-{ nom: "Maylis" , famille: "douine3" , génération:"2"},
-{ nom: "Clément" , famille: "douine4" , génération:"2"},
-{ nom: "Céline" , famille: "douine4" , génération:"2"},
-{ nom: "Titouan" , famille: "douine5" , génération:"1"},
-{ nom: "Hugo" , famille: "douine5" , génération:"1"},
-{ nom: "Camille 1" , famille: "douine6" , génération:"2"},
-{ nom: "Damien" , famille: "douine6" , génération:"2"},
-{ nom: "Lila" , famille: "douine6" , génération:"1"},
-{ nom: "Coline" , famille: "douine6" , génération:"1"},
-{ nom: "Priscille" , famille: "douine7" , génération:"2"},
-{ nom: "Alex L" , famille: "douine7" , génération:"2"},
-{ nom: "Lana" , famille: "douine7" , génération:"1"},
-{ nom: "Chloé" , famille: "douine7" , génération:"1"},
-{ nom: "Florent" , famille: "douine8" , génération:"2"},
-{ nom: "Sam" , famille: "douine8" , génération:"1"},
-{ nom: "Martine" , famille: "douine9" , génération:"3"},
-{ nom: "Cécile" , famille: "douine9" , génération:"2"},
-{ nom: "Will" , famille: "douine9" , génération:"2"},
-{ nom: "Rose" , famille: "douine9" , génération:""},
-{ nom: "Soline" , famille: "douine9" , génération:""},
-{ nom: "Alex I" , famille: "douine9" , génération:"2"},
-{ nom: "Élule" , famille: "douine10" , génération:"2"},
-{ nom: "Sacha" , famille: "douine10" , génération:"2"},
-{ nom: "Haikim" , famille: "douine10" , génération:""}
-]
-
-
-/* 
-Attention à bien indenter tes fonctions, tu risques de te perdre sinon.
-Par exemple pour celle en dessous :
-function chooseagiver() {
-    var giveraleatoire = null
-    return Math.floor((Math.random() * 30) + 1);
-}
-*/
-
-function chooseagiver() {
-var giveraleatoire = null // Ici tu créé une variable dans ta fonction, elle ne servira que dedans. Et tu ne l'utilise pas, donc tu peux la supprimer je pense
-return Math.floor((Math.random() * 30) + 1);
-
- };
- var giveraleatoire = chooseagiver();
-
- function chooseareceiver(){ // Les 2 fonctions font la même chose non ? :-) 
-var receiveraleatoire = null
-return Math.floor((Math.random() * 30) + 1);
-
- };
- var receiveraleatoire = chooseareceiver();
-
-
-console.log(giveraleatoire)
-console.log(receiveraleatoire)
-
-var giver = tableaugiver[giveraleatoire - 1].nom
-var famillegiver = tableaugiver[giveraleatoire - 1].famille
-var gengiver = tableaugiver[giveraleatoire - 1].génération
-
-var receiver = tableaureceiver[receiveraleatoire - 1].nom
-var famillereceiver = tableaureceiver[receiveraleatoire - 1].famille
-var genreceiver = tableaureceiver[receiveraleatoire - 1].génération
-
-var listegiver2 = [];
-var listereceiver2 = [];
-
-// Les conditions sont biens en soit mais il te manque pas mal de choses.
-// Déjà ton script ne va afficher qu'un couple giver/receiver. Il te manque une boucle for quelque part pour que tout le monde puisse passer.
-// Je te propose une autre approche, peut-être plus simple à mettre en place : 
-// Etape 1 : Tu mélanges ton tableau de nom via une fonction shuffle que tu peux trouver sur internet je pense
-// Etape 2 : Tu prend le premier nom qui sera le giver, le second le receiver.
-// Etape 3 : Tu vérifies que ça respecte bien toutes les conditions du dessous, sinon tu stoppes tout et reprends à l'étape 1
-// Etape 4 : Tu ajoutes dans un tableau le résultat avec giver et receiver, comme tu le fais en dessous
-// Etape 5 : Ensuite tu continues à parcourir ton tableau avec le 2ème qui donne au 3ème etc...
-// Etape 6 : Si tu arrives au bout du tableau et que toutes les conditions sont réunis, alors seulement à ce moment là, tu viens reparcourir ton tableau de résultat pour afficher les couples
-// Etape 7 : Tu as réussi, tu peux aller te prendre une bière... Oups non ça c'est moi... :D 
-if (giveraleatoire === receiveraleatoire) {
- chooseagiver();
-}
-
- else if (famillegiver === famillereceiver) {
-   chooseagiver();
- }
- else if (gengiver === 3 && genreceiver === 1) {
-    chooseagiver();
- }
- else if (listegiver2.includes(giver)){
-    chooseagiver();
- }
-
- else {
-        listegiver2.push(giver);
-        listereceiver2.push(receiver);
-        var nomgiver = document.getElementById('nomgiver')
-        var nomreceiver = document.getElementById('nomreceiver')
-    };
-
-
-
-console.log(giver)
-console.log(receiver)
-console.log(listegiver2)
-console.log(listereceiver2)
-
-
-
-
-
-
-
-
-           
-     </script>
-
-   <p id="phrase">
-    C'est
-    <div id="nomgiver">
-        <div>Titouan</div>
-        <br>
-        <div>Marin</div>
-        <br>
-        <div>Suzie</div>
-        <br>
-        <div>Florent</div>
-        <br>
-        <div>Manu</div>
-
-    </div>
-    qui fait un cadeau à 
-    <div id="nomreceiver">
-
-    </div>
-</p>  
-
-   <a onclick="chooseagiver()">Donneur</a>
-    <a onclick="chooseareceiver()">Receveur</a>
-    </body>
+    <script>
+        var tableaunoms = [
+    { nom: "Papibois" , famille: "douine1" , génération:"3"},
+    { nom: "Maminou" , famille: "douine1" , génération:"3"},
+    { nom: "Manu" , famille: "douine2" , génération:"2"},
+    { nom: "Camille 2" , famille: "douine2" , génération:"2"},
+    { nom: "Suzie" , famille: "douine2" , génération:"1"},
+    { nom: "Marin" , famille: "douine2" , génération:"1"},
+    { nom: "Maylis" , famille: "douine3" , génération:"2"},
+    { nom: "Clément" , famille: "douine4" , génération:"2"},
+    { nom: "Céline" , famille: "douine4" , génération:"1"},
+    { nom: "Titouan" , famille: "douine4" , génération:"1"},
+    { nom: "Hugo" , famille: "douine4" , génération:"1"},
+    { nom: "Camille 1" , famille: "douine6" , génération:"2"},
+    { nom: "Damien" , famille: "douine6" , génération:"2"},
+    { nom: "Lila" , famille: "douine6" , génération:"1"},
+    { nom: "Coline" , famille: "douine6" , génération:"1"},
+    { nom: "Priscille" , famille: "douine7" , génération:"2"},
+    { nom: "Alex L" , famille: "douine7" , génération:"2"},
+    { nom: "Lana" , famille: "douine7" , génération:"1"},
+    { nom: "Chloé" , famille: "douine7" , génération:"1"},
+    { nom: "Florent" , famille: "douine8" , génération:"2"},
+    { nom: "Sam" , famille: "douine8" , génération:"1"},
+    { nom: "Martine" , famille: "douine9" , génération:"3"},
+    { nom: "Cécile" , famille: "douine9" , génération:"2"},
+    { nom: "Will" , famille: "douine9" , génération:"2"},
+    { nom: "Rose" , famille: "douine9" , génération:""},
+    { nom: "Soline" , famille: "douine9" , génération:""},
+    { nom: "Alex I" , famille: "douine9" , génération:"2"},
+    { nom: "Élule" , famille: "douine10" , génération:"2"},
+    { nom: "Sacha" , famille: "douine10" , génération:"2"},
+    { nom: "Haikim" , famille: "douine10" , génération:""}
+    ]
     
-<script>
- 
-nomgiver.textContent = giver;
-nomreceiver.textContent = receiver;
-
-</script>
-</html>
+    
+    var shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random());
+    console.log(tableaunoms)
+    
+    var listefinale = [];
+    var phrase  = ""
+    
+    const celine = "Céline";
+    const maminou = "Maminou"
+    
+    
+    for (let giveraleatoire = 1; giveraleatoire <= 30; giveraleatoire++) {
+    
+    console.log(giveraleatoire)
+    var giver = tableaunoms[giveraleatoire - 1].nom
+    var famillegiver = tableaunoms[giveraleatoire - 1].famille
+    var gengiver = tableaunoms[giveraleatoire - 1].génération
+    console.log(gengiver)
+    var receiver = tableaunoms[giveraleatoire].nom
+    var famillereceiver = tableaunoms[giveraleatoire].famille
+    var genreceiver = tableaunoms[giveraleatoire].génération
+    console.log(giver)
+    console.log(receiver)
+    console.log(genreceiver)
+    
+    
+        if (giveraleatoire == 30 ) {
+            giver = tableaunoms[29].nom
+            receiver = tableaunoms[0].nom
+            let phrase  = "C'est " + giver + " qui fait un cadeau à " + receiver ;
+            listefinale.push(phrase)
+       }
+         else if (famillegiver == famillereceiver) {
+            shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random())
+             listefinale = []
+            giveraleatoire = 0
+      } 
+       else  if (gengiver == 3 && genreceiver == 1) {
+            shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random())
+             listefinale = []
+            giveraleatoire = 0
+        } 
+        
+       else {
+            let phrase  = "C'est " + giver + " qui fait un cadeau à " + receiver ;
+           listefinale.push(phrase)
+           console.log(phrase)
+           console.log(listefinale.length)
+         }
+    
+            
+         console.log(listefinale)
+    
+        
+        };
+     
+    
+    
+    </script>
+<style>
+    #finale{
+        height: auto;
+        border: black;
+    }
+    </style>
+    
+    <script>
+        var tableaunoms = [
+    { nom: "Papibois" , famille: "douine1" , génération:"3"},
+    { nom: "Maminou" , famille: "douine1" , génération:"3"},
+    { nom: "Manu" , famille: "douine2" , génération:"2"},
+    { nom: "Camille 2" , famille: "douine2" , génération:"2"},
+    { nom: "Suzie" , famille: "douine2" , génération:"1"},
+    { nom: "Marin" , famille: "douine2" , génération:"1"},
+    { nom: "Maylis" , famille: "douine3" , génération:"2"},
+    { nom: "Clément" , famille: "douine4" , génération:"2"},
+    { nom: "Céline" , famille: "douine4" , génération:"1"},
+    { nom: "Titouan" , famille: "douine4" , génération:"1"},
+    { nom: "Hugo" , famille: "douine4" , génération:"1"},
+    { nom: "Camille 1" , famille: "douine6" , génération:"2"},
+    { nom: "Damien" , famille: "douine6" , génération:"2"},
+    { nom: "Lila" , famille: "douine6" , génération:"1"},
+    { nom: "Coline" , famille: "douine6" , génération:"1"},
+    { nom: "Priscille" , famille: "douine7" , génération:"2"},
+    { nom: "Alex L" , famille: "douine7" , génération:"2"},
+    { nom: "Lana" , famille: "douine7" , génération:"1"},
+    { nom: "Chloé" , famille: "douine7" , génération:"1"},
+    { nom: "Florent" , famille: "douine8" , génération:"2"},
+    { nom: "Sam" , famille: "douine8" , génération:"1"},
+    { nom: "Martine" , famille: "douine9" , génération:"3"},
+    { nom: "Cécile" , famille: "douine9" , génération:"2"},
+    { nom: "Will" , famille: "douine9" , génération:"2"},
+    { nom: "Rose" , famille: "douine9" , génération:""},
+    { nom: "Soline" , famille: "douine9" , génération:""},
+    { nom: "Alex I" , famille: "douine9" , génération:"2"},
+    { nom: "Élule" , famille: "douine10" , génération:"2"},
+    { nom: "Sacha" , famille: "douine10" , génération:"2"},
+    { nom: "Haikim" , famille: "douine10" , génération:""}
+    ]
+    
+    
+    var shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random());
+    console.log(tableaunoms)
+    
+    var listefinale = [];
+    var phrase  = ""
+    for (let giveraleatoire = 1; giveraleatoire <= 30; giveraleatoire++) {
+    
+    console.log(giveraleatoire)
+    var giver = tableaunoms[giveraleatoire - 1].nom
+    var famillegiver = tableaunoms[giveraleatoire - 1].famille
+    var gengiver = tableaunoms[giveraleatoire - 1].génération
+    console.log(gengiver)
+    var receiver = tableaunoms[giveraleatoire].nom
+    var famillereceiver = tableaunoms[giveraleatoire].famille
+    var genreceiver = tableaunoms[giveraleatoire].génération
+    console.log(giver)
+    console.log(receiver)
+    console.log(genreceiver)
+    
+    
+        if (giveraleatoire == 30 ) {
+            giver = tableaunoms[29].nom
+            receiver = tableaunoms[0].nom
+            let phrase  = "C'est " + giver + " qui fait un cadeau à " + receiver ;
+            listefinale.push(phrase)
+       }
+         else if (famillegiver == famillereceiver) {
+            shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random())
+             listefinale = []
+            giveraleatoire = 0
+      } 
+       else  if (gengiver == 3 && genreceiver == 1) {
+            shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random())
+             listefinale = []
+            giveraleatoire = 0
+        } 
+        
+       else {
+            let phrase  = "C'est " + giver + " qui fait un cadeau à " + receiver ;
+           listefinale.push(phrase)
+           console.log(phrase)
+           console.log(listefinale.length)
+         }
+    
+            
+         console.log(listefinale)
+    
+        
+        };
+     
+    
+    
+    </script>
+        
