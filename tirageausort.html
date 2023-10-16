@@ -1,8 +1,5 @@
 <style>
-    #finale{
-        height: auto;
-        border: black;
-    }
+   
     </style>
     
     <script>
@@ -34,9 +31,9 @@
     { nom: "Rose" , famille: "douine9" , génération:""},
     { nom: "Soline" , famille: "douine9" , génération:""},
     { nom: "Alex I" , famille: "douine9" , génération:"2"},
-    { nom: "Élule" , famille: "douine10" , génération:"2"},
+    { nom: "Éylul" , famille: "douine10" , génération:"2"},
     { nom: "Sacha" , famille: "douine10" , génération:"2"},
-    { nom: "Haikim" , famille: "douine10" , génération:""}
+    { nom: "Ékim" , famille: "douine10" , génération:""}
     ]
     
     
@@ -46,8 +43,7 @@
     var listefinale = [];
     var phrase  = ""
     
-    const celine = "Céline";
-    const maminou = "Maminou"
+   
     
     
     for (let giveraleatoire = 1; giveraleatoire <= 30; giveraleatoire++) {
@@ -71,6 +67,8 @@
             let phrase  = "C'est " + giver + " qui fait un cadeau à " + receiver ;
             listefinale.push(phrase)
        }
+   
+       
          else if (famillegiver == famillereceiver) {
             shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random())
              listefinale = []
@@ -92,8 +90,7 @@
             
          console.log(listefinale)
     
-        
-        };
+         };
      
     
     
