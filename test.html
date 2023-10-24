@@ -48,10 +48,9 @@ for (let giveraleatoire = 1; giveraleatoire <= 30; giveraleatoire++) {
         if (giveraleatoire == 30 ) {
         giver = tableaunoms[29].nom
         receiver = tableaunoms[0].nom
-        let phrase  = "C'est " + giver + " qui fait un cadeau à " + receiver ;
-        listefinale.push(phrase)
+        
    }  
-        else {
+     else {
 
         var giver = tableaunoms[giveraleatoire - 1].nom
         var famillegiver = tableaunoms[giveraleatoire - 1].famille
@@ -77,14 +76,8 @@ for (let giveraleatoire = 1; giveraleatoire <= 30; giveraleatoire++) {
     } 
     
    else {
-        if (giveraleatoire == 30){
-
-        }
-        else {
-                let phrase  = "C'est " + giver + " qui fait un cadeau à " + receiver ;
+        let phrase  = "C'est " + giver + " qui fait un cadeau à " + receiver ;
         listefinale.push(phrase)
-        }
-        
        
      }
 
