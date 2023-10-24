@@ -45,22 +45,27 @@ var listefinale = [];
 var phrase  = ""
 for (let giveraleatoire = 1; giveraleatoire <= 30; giveraleatoire++) {
 
-var giver = tableaunoms[giveraleatoire - 1].nom
-var famillegiver = tableaunoms[giveraleatoire - 1].famille
-var gengiver = tableaunoms[giveraleatoire - 1].génération
-var receiver = tableaunoms[giveraleatoire].nom
-var famillereceiver = tableaunoms[giveraleatoire].famille
-var genreceiver = tableaunoms[giveraleatoire].génération
-
-
-
-    if (giveraleatoire == 30 ) {
+        if (giveraleatoire == 30 ) {
         giver = tableaunoms[29].nom
         receiver = tableaunoms[0].nom
         let phrase  = "C'est " + giver + " qui fait un cadeau à " + receiver ;
         listefinale.push(phrase)
+   }  
+        else {
+
+        var giver = tableaunoms[giveraleatoire - 1].nom
+        var famillegiver = tableaunoms[giveraleatoire - 1].famille
+        var gengiver = tableaunoms[giveraleatoire - 1].génération
+        var receiver = tableaunoms[giveraleatoire].nom
+        var famillereceiver = tableaunoms[giveraleatoire].famille
+        var genreceiver = tableaunoms[giveraleatoire].génération
    }
-     else if (famillegiver == famillereceiver) {
+
+
+
+
+   
+   if (famillegiver == famillereceiver) {
         shuffledArray = tableaunoms.sort((a, b) => 0.5 - Math.random())
          listefinale = []
         giveraleatoire = 0
@@ -72,8 +77,14 @@ var genreceiver = tableaunoms[giveraleatoire].génération
     } 
     
    else {
-        let phrase  = "C'est " + giver + " qui fait un cadeau à " + receiver ;
+        if (giveraleatoire == 30){
+
+        }
+        else {
+                let phrase  = "C'est " + giver + " qui fait un cadeau à " + receiver ;
         listefinale.push(phrase)
+        }
+        
        
      }
 
