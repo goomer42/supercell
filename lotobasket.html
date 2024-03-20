@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire</title>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" id="name" placeholder="Nom">
+        <input type="email" id="email" placeholder="Email">
+        <button type="submit">Soumettre</button>
+    </form>
+
+    <table id="dataTable" border="1">
+        <tr>
+            <th>Nom</th>
+            <th>Email</th>
+        </tr>
+    </table>
+
+    <script>
+// Fonction pour ajouter une ligne au tableau avec les données du formulaire
+function addDataToTable(name, email) {
+    var table = document.getElementById("dataTable");
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = name;
+    cell2.innerHTML = email;
+}
+
+// Fonction pour définir un cookie avec les données du tableau
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+// Fonction pour récupérer la valeur d'un cookie
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+// Événement de soumission du formulaire
+document.getElementById("myForm").addEventListener("submit", function(event){
+    event.preventDefault(); // Empêcher le comportement par défaut du formulaire
+
+    // Récupérer les valeurs des champs
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+
+    // Ajouter les données au tableau
+    addDataToTable(name, email);
+
+    // Sauvegarder les données dans un cookie
+    var tableData = getTableDataFromCookies();
+    tableData.push({name: name, email: email});
+    setCookie("tableData", JSON.stringify(tableData), 30); // Le cookie expire dans 30 jours
+            // Réinitialiser le formulaire
+    document.getElementById("myForm").reset();
+});
+
+// Fonction pour récupérer les données du tableau à partir des cookies
+function getTableDataFromCookies() {
+    var cookieData = getCookie("tableData");
+    if (cookieData) {
+        return JSON.parse(cookieData);
+    } else {
+        return [];
+    }
+}
+
+// Au chargement de la page, remplir le tableau avec les données stockées dans les cookies
+window.onload = function() {
+    var tableData = getTableDataFromCookies();
+    for (var i = 0; i < tableData.length; i++) {
+        addDataToTable(tableData[i].name, tableData[i].email);
+    }
+};
+    </script>
+</body>
+</html>
